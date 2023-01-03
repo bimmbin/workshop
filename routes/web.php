@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PageController@home');
-Route::get('/about', 'PageController@about');
-Route::get('/services', 'PageController@services');
-Route::get('/contact', 'PageController@contact');
+Route::get('/', 'ContactController@home');
+Route::post('/home/save', 'ContactController@contact_save');
+
+
+Route::get('/edit/{id}', 'ContactController@contact_edit');
+Route::post('/update/{id}', 'ContactController@contact_update');
+
 // Route::get('/hello', 'GreetController@hello');
 
 // Route::get('/form', 'GreetController@porm');

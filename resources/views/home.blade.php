@@ -3,33 +3,62 @@
     Landing Page
 @endsection
 @section('content')
+    {{-- Inputs --}}
 
+    <div class="">
+        <p class="text-2xl font-medium">Create</p>
+        <form action="/home/save" method="post">
+            @csrf
+            <input class="w-full my-1 h-10 px-3" type="text" name="name" placeholder="Name">
+            <input class="w-full my-1 h-10 px-3" type="text" name="number" placeholder="Number">
+            <button type="submit" class="bg-indigo-400 px-5 py-2 rounded-md">Submit</button>
+        </form>
+    </div>
 
+    {{-- Table --}}
+    <div class="flex flex-col ">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 ">
+            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-hidden ">
+                    <table class="min-w-full bg-black">
+                        <thead class="bg-white border-b ">
+                            <tr>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    Name
+                                </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    Number
+                                </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    Options
+                                </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($contacts as $contact)
+                                <tr class="bg-white border-b hover:bg-[#C5C9F4]">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $contact->name }} </td>
+                                    <td class="text-sm text-gray-90 px-6 py-4 whitespace-nowrap">
+                                        {{ $contact->number }}
+                                    </td>
+                                    <td class="text-sm text-gray-90 px-6 py-4 whitespace-nowrap">
+                                        <a href="edit/{{ $contact->id }}">update</a>
+                                    </td>
+                                    <td class="text-sm text-gray-90 px-6 py-4 whitespace-nowrap">
+                                        <a href="update">delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
 
-            <div class="hero section py-5">
-                <img src="{{ asset('img/hero.png') }}" class="h-60 w-full object-cover">
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="flex flex-wrap justify-between">
-                <div class="bg-indigo-400 w-52 h-32 mb-5 text-center">
-                    CARD 1
-                </div>
-                <div class="bg-indigo-400 w-52 h-32 mb-5 text-center">
-                    CARD 2
-                </div>
-                <div class="bg-indigo-400 w-52 h-32 mb-5 text-center">
-                    CARD 3
-                </div>
-                <div class="bg-indigo-400 w-52 h-32 mb-5 text-center">
-                    CARD 4
-                </div>
-                <div class="bg-indigo-400 w-52 h-32 mb-5 text-center">
-                    CARD 5
-                </div>
-                <div class="bg-indigo-400 w-52 h-32 mb-5 text-center">
-                    CARD 6
-                </div>
-            </div>
-      
+        </div>
+    </div>
+@endsection
 
-            
+@section('script')
 @endsection

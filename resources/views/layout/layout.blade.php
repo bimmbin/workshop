@@ -9,7 +9,7 @@
     <title>@yield('docTitle')</title>
 </head>
 
-<body>
+<body class="bg-[#E5F0FE]">
 
     <header class=" w-full bg-indigo-400">
         <div class="container mx-auto px-[20%]">
@@ -46,5 +46,11 @@
 
 
 </body>
+
+<script>
+        @yield('script')
+</script>
+
+ 
 
 </html>
