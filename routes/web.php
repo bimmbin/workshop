@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'GreetController@welcome');
-Route::get('/greetings/hello/gomez', 'GreetController@hello');
+Route::get('/', 'PageController@home');
+Route::get('/about', 'PageController@about');
+Route::get('/services', 'PageController@services');
+Route::get('/contact', 'PageController@contact');
+// Route::get('/hello', 'GreetController@hello');
 
-Route::get('/sum/num1/num2', 'CalcController@plus');
-Route::get('/average/num1/num2/num3/num4/num5', 'CalcController@avg');
-
-Route::get('/form', 'GreetController@porm');
+// Route::get('/form', 'GreetController@porm');
